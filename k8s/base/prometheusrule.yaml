@@ -10,7 +10,7 @@ spec:
     - name: taskflow.rules
       rules:
         - alert: TaskFlowDown
-          expr: up{job="taskflow-api"} == 0
+          expr: absent(up{job="taskflow-api"}) or min(up{job="taskflow-api"}) == 0
           for: 1m
           labels:
             severity: critical
