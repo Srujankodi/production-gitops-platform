@@ -3,10 +3,14 @@ kind: Service
 metadata:
   name: taskflow-api
   namespace: taskflow
+  labels:
+    app: taskflow-api
 spec:
   selector:
     app: taskflow-api
   ports:
-    - port: 80
+    - name: http
+      protocol: TCP
+      port: 80
       targetPort: 3001
   type: ClusterIP
