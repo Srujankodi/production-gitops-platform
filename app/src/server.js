@@ -13,6 +13,11 @@ function shutdown(signal) {
     console.log("HTTP server closed.");
     process.exit(0);
   });
+
+  setTimeout(() => {
+    console.error("Forced shutdown after timeout.");
+    process.exit(1);
+  }, 10000).unref();
 }
 
 process.on("SIGTERM", () => shutdown("SIGTERM"));
