@@ -13,7 +13,7 @@ permissions:
   packages: write
 
 env:
-  IMAGE_NAME: ghcr.io/${{ github.repository_owner }}/taskflow-api
+  IMAGE_NAME: ghcr.io/srujankodi/taskflow-api
 
 jobs:
   build-test-scan:
