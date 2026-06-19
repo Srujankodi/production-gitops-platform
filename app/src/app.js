@@ -1,10 +1,12 @@
 const express = require("express");
 const { register, metricsMiddleware } = require("./metrics");
+const { requestLogger } = require("./logger");
 
 const app = express();
 
 app.disable("x-powered-by");
 app.use(express.json());
+app.use(requestLogger);
 app.use(metricsMiddleware);
 
 // Temporary in-memory task storage.
